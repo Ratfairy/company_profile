@@ -38,4 +38,50 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
+    const revealSelectors = [
+        '.about-company-wrapper',
+        '.company-video-header',
+        '.about-video',
+        '.company-profile-header',
+        '.company-profile-card',
+        '.technical-section .section-title',
+        '.technical-section .row',
+        '.certification-section .section-title',
+        '.certificate-card',
+        '.main-products-section .section-title',
+        '.main-product-card',
+        '.equipment-header',
+        '.equipment-card',
+        '.customer-header',
+        '.customer-logo-card',
+        '.awards-header',
+        '.awards-card',
+        '.contact-header',
+        '.contact-info-card',
+        '.contact-map-card'
+    ];
+
+    const revealElements = document.querySelectorAll(revealSelectors.join(','));
+
+    if (revealElements.length) {
+        revealElements.forEach((element, index) => {
+            element.classList.add('reveal-on-scroll');
+            element.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 90}ms`);
+        });
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.16,
+            rootMargin: '0px 0px -70px 0px'
+        });
+
+        revealElements.forEach(element => revealObserver.observe(element));
+    }
+
 });

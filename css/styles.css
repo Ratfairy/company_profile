@@ -11774,6 +11774,121 @@ section {
     margin-bottom: 0;
 }
 
+.company-video-section {
+    padding: 88px 0 96px;
+    background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.13), transparent 32%),
+        linear-gradient(135deg, #07548d 0%, #00457f 48%, #063b6d 100%);
+}
+
+.company-video-header {
+    max-width: 760px;
+    margin: 0 auto 38px;
+    text-align: center;
+}
+
+.company-video-badge {
+    display: inline-block;
+    padding: 8px 18px;
+    margin-bottom: 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.company-video-header h2 {
+    font-size: 40px;
+    font-weight: 850;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+
+.about-video {
+    position: relative;
+    width: 100%;
+    max-width: 1120px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #0f172a;
+    box-shadow: 0 24px 62px rgba(0, 24, 54, 0.34);
+}
+
+.about-video video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+        opacity 0.75s ease,
+        transform 0.75s ease;
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-company-wrapper,
+.company-profile-card,
+.equipment-card,
+.contact-info-card,
+.contact-map-card,
+.awards-card {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.about-company-wrapper:hover,
+.company-profile-card:hover,
+.equipment-card:hover,
+.contact-info-card:hover,
+.contact-map-card:hover,
+.awards-card:hover {
+    transform: translateY(-4px);
+}
+
+.about-video {
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+.about-video:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 72px rgba(0, 24, 54, 0.42);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-on-scroll,
+    .about-company-wrapper,
+    .company-profile-card,
+    .equipment-card,
+    .contact-info-card,
+    .contact-map-card,
+    .awards-card,
+    .about-video {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 @media (max-width: 768px) {
     .company-description-section {
         padding: 70px 0;
@@ -11791,6 +11906,22 @@ section {
     .about-company-wrapper p {
         font-size: 15px;
         line-height: 1.8;
+    }
+
+    .company-video-section {
+        padding: 64px 0 70px;
+    }
+
+    .company-video-header {
+        margin-bottom: 28px;
+    }
+
+    .company-video-header h2 {
+        font-size: 30px;
+    }
+
+    .about-video {
+        border-radius: 14px;
     }
 }
 
